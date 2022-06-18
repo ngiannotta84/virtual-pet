@@ -37,3 +37,60 @@ describe ("pet.hunger",()=>{
         expect (pet.hunger).toEqual(5)
       });
     });
+
+describe('walk', () => {
+    it('increases fitness by 4', () => {
+  const pet = new Pet('fido');
+        pet.fitness = 4;
+        pet.walk();
+        expect(pet.fitness).toEqual(8);
+      });
+      it('increases fitness by to a maximum of 10', () => {
+        const pet = new Pet('fido');
+        pet.fitness = 8;
+        pet.walk();
+        expect(pet.fitness).toEqual(10);
+      });
+     });
+describe('Feed', () => {
+      it('decrease hunger by 3', () => {
+        const pet = new Pet('fido');
+          pet.hunger = 6;
+          pet.feed();
+          expect(pet.hunger).toEqual(3);
+        });
+        it('decreasehunger by to a minimum of 0', () => {
+        const pet = new Pet('fido');
+        pet.hunger = 2;
+        pet.feed();
+        expect(pet.hunger).toEqual(0);
+      });
+    });
+describe('Check up', () => {
+      it('returns "I need a walk" if pet fitness <= 3 and hunger < 5', () => {
+        const pet = new Pet('fido');
+          pet.hunger = 4;
+          pet.fitness = 3;
+          expect(pet.checkUp()).toEqual ("I need a walk");
+      });
+      it('returns "I am hungry" if pet fitness>3 and hunger >=5', () => {
+        const pet = new Pet('fido');
+          pet.hunger = 5;
+          pet.fitness =4;
+          expect(pet.checkUp()).toEqual ("I am hungry");
+      });
+      it('returns "I am hungry AND I need a walk" if pet fitness<=3 and hunger >=5', () => {
+        const pet = new Pet('fido');
+          pet.hunger = 5;
+          pet.fitness =3;
+          expect(pet.checkUp()).toEqual ("I am hungry And I need a walk");
+      });
+      it('returns "I feel great" if pet fitness<=3 and hunger >=5', () => {
+        const pet = new Pet('fido');
+          pet.hunger = 0;
+          pet.fitness = 10;
+          expect(pet.checkUp()).toEqual ("I feel great");
+      });
+
+
+    });
