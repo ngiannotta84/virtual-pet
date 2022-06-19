@@ -6,6 +6,9 @@ function Pet(name) {
     this.fitness = MAXIMUM_FITNESS;
     this.hunger = MINIMUM_HUNGER;  
 }
+Pet.prototype = { get isAlive() {
+        return this.age < 30 && this.hunger < 10 && this.fitness > 0;}
+};
 Pet.prototype.growUp = function () {
         this.age += 1;
         this.hunger += 5;
@@ -33,5 +36,6 @@ Pet.prototype.checkUp = function () {
         else if (this.fitness<=3 && this.hunger >=5) {return ("I am hungry And I need a walk");}
         else { return ("I feel great");}
 };
+
 
 module.exports = Pet; 

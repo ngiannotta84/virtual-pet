@@ -91,6 +91,15 @@ describe('Check up', () => {
           pet.fitness = 10;
           expect(pet.checkUp()).toEqual ("I feel great");
       });
-
-
+    });
+describe('isAlive',()=>{
+  it('returns true if age<30 && hunger<10 && fitness>=0' ,() => {
+        const pet =new Pet ('fido');
+        expect(pet.isAlive).toEqual (true)
+      });
+  it('returns true if age>=30 && hunger>=10 && fitness<=0' ,() => {
+        const pet =new Pet ('fido');
+        pet.hunger = 10;
+        expect(pet.isAlive).toEqual (false)
+      });
     });
